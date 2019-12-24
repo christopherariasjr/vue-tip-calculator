@@ -1,5 +1,7 @@
-# tipcalcvue
+# Vue-Tip-Calculator
+Tip Calculator made with Vue.js 
 
+Created by Christopher Arias
 ## Project setup
 ```
 npm install
