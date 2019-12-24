@@ -13,7 +13,7 @@
 
     </v-app-bar>
 
-    <v-content class='backgroundColor'>
+    <v-content>
       <TipCalc />
     </v-content>
   </v-app>
@@ -44,9 +44,6 @@ export default {
 
  } 
 
- .backgroundColor {
-   background: #c06c84;
- }
 
 
 </style>

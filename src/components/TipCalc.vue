@@ -4,16 +4,19 @@
         <v-form >  
                 <v-row
                 justify="center">
-                    <v-col cols="12"
-                    md="8">
+                    <v-col cols="6"
+                    md="3">
                         <h2>Tip Calculator</h2>
+                    </v-col>
+                    <v-col cols="6" class="alert">
+                        <p>{{alert}}</p>
                     </v-col>
                 </v-row>
             <v-row 
             justify="center">
                 <v-col
                 cols=12
-                md="8"
+                md="12"
                 >
                     <div class="results">
                         <p>
@@ -25,7 +28,7 @@
             <v-row justify="center">
                 <v-col
                 cols=12
-                md="8">
+                md="12">
                     <v-text-field
                     type="number"
                     class="remove"
@@ -40,7 +43,7 @@
                 </v-col>
                 <v-col
                 cols=12
-                md="8">
+                md="12">
                     <v-select
                         v-model="inputPeople"
                         :items="people"
@@ -55,7 +58,7 @@
                 </v-col>
                 <v-col
                 cols=12
-                md="8">
+                md="12">
                     <v-select
                         v-model="inputPercent"
                         :items="percent"
@@ -70,7 +73,7 @@
             justify="center">
                 <v-col class="text-center"
                 cols=12
-                md="8">
+                md="12">
                     <v-btn block dark x-large @click="tipCalc">Calculate</v-btn>
                 </v-col>
             </v-row>
@@ -89,6 +92,7 @@ export default {
             cost: null,
             inputPercent: '',
             inputPeople: '',
+            alert: '',
             people: [
                 {title: "1", value: 1},
                 {title: "2", value: 2},
@@ -106,6 +110,9 @@ export default {
                 {title: '15%', value: .15},
                 {title: '20%', value: .20},
                 {title: '25%', value: .25},
+                {title: '30%', value: .3},
+                {title: '35%', value: .35},
+                {title: '40%', value: .4},
             ],
         }
     },
@@ -113,10 +120,17 @@ export default {
         tipCalc() {
             if(this.cost == null) {
                 this.results = "$0.00"
+                
+            }
+            else if (this.cost <= 0) {
+                this.alert = "Please enter a number above 0";
+                this.results = "ERROR"
+            
             } else {
                 let tipResults = (this.cost * this.inputPercent) / this.inputPeople;  
                 let resultsRounded = tipResults.toFixed(2);
                 this.results = "$" + resultsRounded;
+                this.alert= "";
             }
         },
 
@@ -149,18 +163,25 @@ export default {
     }
     #tipCalc {
         margin-top: 40px;
-        width: 80%;
+        padding-bottom: 1em;
+        max-width: 400px;
         margin-left: auto;
         margin-right: auto;
         background: white;
         border-radius: 10px;
-        box-shadow: 2px 3px 3px;
+        box-shadow: 4px 6px 9px;
     }
      
         .remove::-webkit-inner-spin-button, 
         .remove::-webkit-outer-spin-button { 
         -webkit-appearance: none; 
         margin: 0; 
+    }
+
+    .alert {
+        color: red;
+        font-size: 12px;
+        top: 5px;
     }
 
     
