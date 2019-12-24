@@ -13,7 +13,7 @@
 
     </v-app-bar>
 
-    <v-content>
+    <v-content class='backgroundColor'>
       <TipCalc />
     </v-content>
   </v-app>
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
  #title {
    h3 {
@@ -43,4 +43,10 @@ export default {
    }
 
  } 
+
+ .backgroundColor {
+   background: #c06c84;
+ }
+
+
 </style>

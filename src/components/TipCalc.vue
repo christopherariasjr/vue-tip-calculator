@@ -149,6 +149,12 @@ export default {
     }
     #tipCalc {
         margin-top: 40px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 2px 3px 3px;
     }
      
         .remove::-webkit-inner-spin-button, 
@@ -157,6 +163,7 @@ export default {
         margin: 0; 
     }
 
+    
 
     
 </style>
